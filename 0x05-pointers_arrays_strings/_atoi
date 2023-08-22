@@ -1,0 +1,8 @@
+#include "my_functions.h"
+
+int main() {
+    int nb;
+    nb = _atoi("98");
+    // Rest of your code
+    return 0;
+}
