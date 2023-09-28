@@ -1,5 +1,15 @@
 #include "main.h"
-#include <stdio.h>
+
+/**
+ * print_binary_recursive - Recursive helper function to print binary.
+ * @n: The number to be printed in binary.
+ */
+void print_binary_recursive(unsigned long int n)
+{
+	if (n > 1)
+		print_binary_recursive(n >> 1);
+	_putchar((n & 1) + '0');
+}
 
 /**
  * print_binary - Prints the binary representation of a number.
@@ -7,26 +17,8 @@
  */
 void print_binary(unsigned long int n)
 {
-	int shift = 0;
-
-	while ((n >> shift) > 0)
-	{
-		shift++;
-	}
-
-	if (shift == 0)
-	{
-		putchar('0');
-		putchar('\n');
-		return;
-	}
-
-	while (--shift >= 0)
-	{
-		char bit = (n >> shift) & 1;
-
-		_putchar(bit ? '1' : '0');
-	}
-
-	putchar('\n');
+	if (n == 0)
+		_putchar('0');
+	else
+		print_binary_recursive(n);
 }
